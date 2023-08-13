@@ -16,9 +16,8 @@ public class AppearingWalls : MonoBehaviour
     }
 
     void Update() {
-        color.a -= Time.deltaTime / decayReduction;
-
         sr.color = color;
+        color.a -= Time.deltaTime / decayReduction;
     }
 
     public void Lighten(float DR) {
