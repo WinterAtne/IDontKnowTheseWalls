@@ -17,10 +17,14 @@ public class PlayerSoundManager : MonoBehaviour
 
     void Update()
     {
+        PlayWalkingSound();
+    }
+
+    void PlayWalkingSound() {
         if (rigidbodyP.velocity.magnitude != 0 && !hasBegunWalking) {
             hasBegunWalking = true;
             am.Play(walkSoundName);
-        } else {
+        } else if (rigidbodyP.velocity.magnitude == 0) {
             hasBegunWalking = false;
             am.Pause(walkSoundName);
         }

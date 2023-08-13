@@ -15,9 +15,15 @@ public class SceneManagement : MonoBehaviour
         else {
             Destroy(this.gameObject);
         }
+
+        Application.targetFrameRate = 60;
     }
 
     public void LoadScene(string sceneName) {
         var scene = SceneManager.LoadSceneAsync(sceneName);
+    }
+
+    public void CloseGame() {
+        Application.Quit();
     }
 }

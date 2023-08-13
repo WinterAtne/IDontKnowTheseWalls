@@ -8,6 +8,9 @@ public class AppearingWalls : MonoBehaviour
     [SerializeField] private bool sensor = false;
     [SerializeField] private float decayReduction = 2f;
 
+    [SerializeField] private float maiximumAlpha = 1f;
+    
+
     SpriteRenderer sr;
     private Color color = Color.white;
 
@@ -23,7 +26,7 @@ public class AppearingWalls : MonoBehaviour
     }
 
     public void Lighten(float DR) {
-        color.a = 1f;
+        color.a = maiximumAlpha;
         if (usePlayerDecay) {
             decayReduction = DR;
         }

@@ -9,12 +9,9 @@ public class PlayerMovement : MonoBehaviour
     Transform transformP;
     Rigidbody2D rigidbodyP;
 
-    AudioManager am;
-
     void Start() {
         transformP = this.GetComponent<Transform>();
         rigidbodyP = this.GetComponent<Rigidbody2D>();
-        am = GameObject.Find("EventSystem").GetComponent<AudioManager>();
     }
 
     void FixedUpdate() {

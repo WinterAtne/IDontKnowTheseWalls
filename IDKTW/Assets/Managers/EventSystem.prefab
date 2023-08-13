@@ -100,3 +100,8 @@ MonoBehaviour:
     loop: 1
     volume: 1
     source: {fileID: 0}
+  - name: BumpIntoWood
+    clip: {fileID: 8300000, guid: ce6bced12cb4ba44cae1c06c0f099911, type: 3}
+    loop: 1
+    volume: 0.2
+    source: {fileID: 0}
