@@ -12,6 +12,12 @@ public class MakeAppear : MonoBehaviour
         }
     }
 
+    void OnTriggerStay2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("Appearer")) {
+            collision.gameObject.GetComponent<AppearingWalls>().Lighten(decayReduction);
+        }
+    }
+
     public float DecayReduction() {
         return decayReduction;
     }
