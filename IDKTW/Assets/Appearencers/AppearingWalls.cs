@@ -12,6 +12,7 @@ public class AppearingWalls : MonoBehaviour
 
     void Awake() {
         sr = this.GetComponent<SpriteRenderer>();
+        color.a = 0f;
     }
 
     void Update() {

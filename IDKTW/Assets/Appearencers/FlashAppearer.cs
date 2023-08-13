@@ -7,6 +7,8 @@ public class FlashAppearer : MonoBehaviour
     SpriteRenderer sr;
     Transform playerTransform;
     private Color color = Color.white;
+    [SerializeField] bool useGlobalDecay = true; //determines weather to use the player's timer for when to flash
+    [SerializeField] float localDecay = 1f;
 
     MakeAppear ma;
 
@@ -24,8 +26,11 @@ public class FlashAppearer : MonoBehaviour
             colorCorrector = -1;
         }
 
-        color.a += (Time.deltaTime / ma.DecayReduction()) * colorCorrector;
-        Debug.Log(color.a);
+        if (useGlobalDecay) {
+            color.a += (Time.deltaTime / ma.DecayReduction()) * colorCorrector;
+        } else {
+            color.a += (Time.deltaTime / localDecay) * colorCorrector;
+        }
 
         sr.color = color;
     }
