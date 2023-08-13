@@ -7,27 +7,22 @@ public class Bumpable : MonoBehaviour
     Rigidbody2D rigidbodyO;
     AudioManager am;
 
-    private bool moving = false;
-    [SerializeField] private string soundName = "BumpIntoWood";
+    [SerializeField] private string[] soundName;
 
     void Start() {
         rigidbodyO = this.GetComponent<Rigidbody2D>();
         am = GameObject.Find("EventSystem").GetComponent<AudioManager>();
     }
 
-    void Update()
-    {
-        PlaySound();
-        Debug.Log(moving);
+    void PlaySound() {
+        am.Play(soundName[Random.Range(0,soundName.Length)]);
     }
 
-    void PlaySound() {
-        if (rigidbodyO.velocity.magnitude != 0 && !moving) {
-            moving = true;
-            am.Play(soundName);
-        } else if (rigidbodyO.velocity.magnitude == 0 && moving) {
-            moving = false;
-            am.Pause(soundName);
-        }
+    void OnCollisionEnter2D(Collision2D collision) {
+        PlaySound();
+    }
+
+    void OnTriggerEnter2D(Collider2D collision) {
+        PlaySound();
     }
 }

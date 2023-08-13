@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Appearer
+  - WoodenArea
   layers:
   - Default
   - TransparentFX

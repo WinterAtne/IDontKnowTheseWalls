@@ -103,6 +103,7 @@ MonoBehaviour:
   usePlayerDecay: 1
   sensor: 1
   decayReduction: 2
+  maiximumAlpha: 1
 --- !u!61 &828138011691785492
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -162,4 +163,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d929a1163a8d73349a30d0fc8c987d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundName: BumpIntoWood
+  soundName: WoodenChair

@@ -95,13 +95,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: WalkWoodenFloor
+  - name: WalkOnWood
     clip: {fileID: 8300000, guid: ab45e9bb9f0f54848885634bf9a5d72c, type: 3}
     loop: 1
     volume: 1
     source: {fileID: 0}
-  - name: BumpIntoWood
+  - name: BumpIntoWood1
     clip: {fileID: 8300000, guid: ce6bced12cb4ba44cae1c06c0f099911, type: 3}
     loop: 1
     volume: 0.2
+    source: {fileID: 0}
+  - name: BumpIntoWall2
+    clip: {fileID: 8300000, guid: 406ed13081131004a925fb189bbf3fa9, type: 3}
+    loop: 0
+    volume: 0.3
+    source: {fileID: 0}
+  - name: WoodenChair
+    clip: {fileID: 8300000, guid: 8529b1ade259ee24e988893d4d6da717, type: 3}
+    loop: 1
+    volume: 0.4
+    source: {fileID: 0}
+  - name: RollyChair
+    clip: {fileID: 8300000, guid: 6f9f0025738056b4f98f1fe7d8a73fd7, type: 3}
+    loop: 1
+    volume: 0.4
+    source: {fileID: 0}
+  - name: MetalChair
+    clip: {fileID: 8300000, guid: 4d9ede88d2f6a8a4a98b012d4feac6e4, type: 3}
+    loop: 1
+    volume: 0.8
+    source: {fileID: 0}
+  - name: BumpIntoWall3
+    clip: {fileID: 8300000, guid: fb0362990917bb44b8dd30db939f13ca, type: 3}
+    loop: 0
+    volume: 0.8
+    source: {fileID: 0}
+  - name: BumpIntoWall4
+    clip: {fileID: 8300000, guid: 85ceb2a0c7212d94ca43f55687184fd7, type: 3}
+    loop: 0
+    volume: 0.2
+    source: {fileID: 0}
+  - name: WalkOnGrass
+    clip: {fileID: 8300000, guid: b81971b3f66e21649b8a3d8672579ee1, type: 3}
+    loop: 1
+    volume: 1
     source: {fileID: 0}
