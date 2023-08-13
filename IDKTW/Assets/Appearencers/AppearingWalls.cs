@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class AppearingWalls : MonoBehaviour
 {
+    [SerializeField] private bool usePlayerDecay = true;
+    [SerializeField] private bool sensor = false;
+    [SerializeField] private float decayReduction = 2f;
 
     SpriteRenderer sr;
     private Color color = Color.white;
-    private float decayReduction = 2f;
 
 
     void Awake() {
@@ -22,7 +24,13 @@ public class AppearingWalls : MonoBehaviour
 
     public void Lighten(float DR) {
         color.a = 1f;
+        if (usePlayerDecay) {
+            decayReduction = DR;
+        }
 
-        decayReduction = DR;
+        if (!GetComponent<MakeAppear>() && sensor) {
+            this.gameObject.AddComponent<MakeAppear>();
+            Destroy(this.gameObject.GetComponent<MakeAppear>(), decayReduction);
+        }
     }
 }
