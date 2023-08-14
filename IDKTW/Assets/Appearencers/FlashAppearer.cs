@@ -12,18 +12,22 @@ public class FlashAppearer : MonoBehaviour
 
     MakeAppear ma;
 
-    private float colorCorrector;
+    private float colorCorrector = 1f;
 
-    void Awake() {
+    void Start() {
         sr = this.GetComponent<SpriteRenderer>();
         ma = GameObject.Find("Player").GetComponent<MakeAppear>();
+
+        color.a = Random.Range(0f, 0.99f);
+        colorCorrector = Random.Range(0, 2);
+        if (colorCorrector == 0) colorCorrector = -1;
     }
 
     void FixedUpdate() {
-        if (color.a <= 0) {
-            colorCorrector = 1;
-        } else if (color.a >= 1) {
-            colorCorrector = -1;
+        if (color.a <= 0f) {
+            colorCorrector = 1f;
+        } else if (color.a >= 1f) {
+            colorCorrector = -1f;
         }
 
         if (useGlobalDecay) {
