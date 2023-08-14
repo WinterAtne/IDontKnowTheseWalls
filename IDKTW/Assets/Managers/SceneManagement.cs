@@ -19,6 +19,13 @@ public class SceneManagement : MonoBehaviour
         Application.targetFrameRate = 60;
     }
 
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            CloseGame();
+            Debug.Log("Must be in Build to Close Game");
+        }
+    }
+
     public void LoadScene(string sceneName) {
         var scene = SceneManager.LoadSceneAsync(sceneName);
     }

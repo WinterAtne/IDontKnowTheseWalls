@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 828138011691785495}
   - component: {fileID: 828138011691785492}
   - component: {fileID: 828138011691785493}
-  - component: {fileID: 4124203928090044149}
   m_Layer: 0
   m_Name: Chair (0)
   m_TagString: Appearer
@@ -151,16 +150,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &4124203928090044149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828138011691785491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d929a1163a8d73349a30d0fc8c987d47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundName: WoodenChair
