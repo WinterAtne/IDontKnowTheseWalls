@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Appearer
   - WoodenArea
+  - Weapon
   layers:
   - Default
   - TransparentFX
