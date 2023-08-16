@@ -180,6 +180,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13abb9e8ee0b45d4ca9265e814475ea1, type: 3}
+--- !u!4 &564362390 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3972136106053894840, guid: e45bd404f3a2bfa4eaab79224127f573, type: 3}
+  m_PrefabInstance: {fileID: 1608497454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &797899720
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +407,68 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1308108747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1308108748}
+  - component: {fileID: 1308108749}
+  - component: {fileID: 1308108750}
+  m_Layer: 0
+  m_Name: Cane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1308108748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308108747}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 564362390}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1308108749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308108747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b17c8e85dacdc4f867ed1d4afd93a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decayReduction: 1
+--- !u!58 &1308108750
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308108747}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!1 &1342738141
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,9 +689,11 @@ GameObject:
   - component: {fileID: 1688485815}
   - component: {fileID: 1688485814}
   - component: {fileID: 1688485816}
+  - component: {fileID: 1688485818}
+  - component: {fileID: 1688485819}
   m_Layer: 0
   m_Name: Square (5)
-  m_TagString: Untagged
+  m_TagString: Appearer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -722,6 +791,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1688485818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688485813}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012c5bfcea11f9c47913c80725ff7a68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  invunlnerableTime: 1
+--- !u!114 &1688485819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688485813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab8878f74bec2a479309c90df051c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usePlayerDecay: 1
+  sensor: 0
+  decayReduction: 2
+  maiximumAlpha: 1
 --- !u!1 &1713411228
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +832,7 @@ GameObject:
   - component: {fileID: 1713411230}
   - component: {fileID: 1713411229}
   - component: {fileID: 1713411231}
+  - component: {fileID: 1713411232}
   m_Layer: 0
   m_Name: Square (3)
   m_TagString: Untagged
@@ -833,6 +933,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1713411232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713411228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abde824dcb87e5a42abb324488b28238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 5
 --- !u!1 &2121807330
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,9 +957,10 @@ GameObject:
   - component: {fileID: 2121807332}
   - component: {fileID: 2121807331}
   - component: {fileID: 2121807333}
+  - component: {fileID: 2121807334}
   m_Layer: 0
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Appearer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -944,3 +1058,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2121807334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121807330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab8878f74bec2a479309c90df051c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usePlayerDecay: 1
+  sensor: 0
+  decayReduction: 2
+  maiximumAlpha: 1
