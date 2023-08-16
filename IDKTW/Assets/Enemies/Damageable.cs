@@ -9,6 +9,9 @@ public class Damageable : MonoBehaviour
     private int currentHealth;
 
     private bool isInvulnerable = false;
+    [SerializeField] bool continueMoving = true;
+    [SerializeField] MonoBehaviour movementScript;
+    [SerializeField] float timeToFadeOnDeath = 2f;
 
     public void Start() {
         currentHealth = maxHealth;
@@ -29,14 +32,25 @@ public class Damageable : MonoBehaviour
         if (currentHealth > maxHealth) currentHealth = maxHealth;
     }
 
-    private void Die() {
-        Destroy(this.gameObject);
-    }
-
     IEnumerator InvunlnerableTime(float time) {
         isInvulnerable = true;
         yield return new WaitForSeconds(time);
 
         isInvulnerable = false;
+    }
+
+    void Die() {
+        if (!GetComponent<AppearingWalls>()) {
+            AppearingWalls aw = this.gameObject.AddComponent<AppearingWalls>();
+            aw.Lighten(timeToFadeOnDeath);
+            Destroy(this.gameObject, timeToFadeOnDeath);
+        }
+
+        Destroy(this.gameObject.GetComponent<BoxCollider2D>());
+
+        if (!continueMoving) {
+            Destroy(movementScript);
+        }
+
     }
 }
