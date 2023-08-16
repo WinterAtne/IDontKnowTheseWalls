@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MakeAppear : MonoBehaviour
+public class RadialAppear : MonoBehaviour
 {
     [SerializeField] float decayReduction = 1f;
 
