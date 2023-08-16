@@ -8,6 +8,7 @@ public class SwordScript : MonoBehaviour
     float rotation;
 
     int damage = 1;
+    float deployTime = 0.2f;
 
     private Camera cameraP;
     void Start() {
@@ -20,17 +21,15 @@ public class SwordScript : MonoBehaviour
 
         cameraP = GameObject.Find("Camera").GetComponent<Camera>();
         UpdateRotation(); //Avoids a glitch where for one frame it appears that the sword sticks straight out;
-    }
-
-    void Update() {
-        if (Input.GetKeyUp(KeyCode.Mouse0)) SheathSword();
-        UpdateRotation();
+        Invoke("SheathSword", deployTime);
     }
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.GetComponent<Damageable>() != null) {
             other.gameObject.GetComponent<Damageable>().Damage(damage);
         }
+
+        SheathSword();
     }
 
     public void UpdateRotation() {
