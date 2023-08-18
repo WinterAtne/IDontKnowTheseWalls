@@ -5,13 +5,16 @@ using UnityEngine;
 public class Approach : MonoBehaviour
 {
     protected Vector2 target;
+    protected bool timeAdjustedMovement = true;
 
     [SerializeField] float speed = 4f;
     [SerializeField] Vector2 offset;
 
-    void LateUpdate() {
+    protected void ApproachTarget() {
         Vector3 desiredPosition = target + offset;
-        Vector3 smoothedPosition = Vector3.MoveTowards(transform.position, desiredPosition, speed * Time.deltaTime);
+        float timedSpeed = speed;
+        if (timeAdjustedMovement) timedSpeed *= Time.deltaTime;
+        Vector3 smoothedPosition = Vector3.MoveTowards(transform.position, desiredPosition,timedSpeed);
 
         transform.position = smoothedPosition;
     }

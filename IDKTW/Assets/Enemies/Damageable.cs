@@ -22,8 +22,8 @@ public class Damageable : MonoBehaviour
         if (isInvulnerable) return;
         currentHealth -= damage;
 
-        StartCoroutine(InvunlnerableTime(invunlnerableTime));
         if (currentHealth <= 0) Die();
+        StartCoroutine(InvunlnerableTime(invunlnerableTime));
     }
 
     public void Heal(int health) {
@@ -42,6 +42,7 @@ public class Damageable : MonoBehaviour
     void Die() {
         if (!continueMoving) {
             Destroy(movementScript);
+            Debug.Log("I am ded");
         }
         Destroy(this.gameObject.GetComponent<BoxCollider2D>());
         Destroy(this.gameObject, timeToFadeOnDeath);

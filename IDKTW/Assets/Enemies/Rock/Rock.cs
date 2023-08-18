@@ -23,6 +23,12 @@ public class Rock : MonoBehaviour
         followBehind.SetSpeed(speed);
     }
 
+    void OnDestroy() {
+        StopAllCoroutines();
+        freeRoam.enabled = false;
+        followBehind.enabled = false;
+    }
+
     void FixedUpdate() {
         if (DetectPlayer()) {
             freeRoam.enabled = false;

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Knight : MonoBehaviour
 {
-    FreeRoam freeRoam;
-    FollowBehind followBehind;
+    KnightRoam freeRoam;
+    KnightFollow followBehind;
     Stay stay;
 
     [SerializeField] float detectionRadius;
@@ -19,19 +19,28 @@ public class Knight : MonoBehaviour
     [SerializeField] float timeToAttack;
 
     void Start() {
-        freeRoam = this.gameObject.AddComponent<FreeRoam>();
+        freeRoam = this.gameObject.AddComponent<KnightRoam>();
         freeRoam.SetTargets(targetLeft, targetRight);
         freeRoam.SetSpeed(speed);
-        followBehind = this.gameObject.AddComponent<FollowBehind>();
+        
+        followBehind = this.gameObject.AddComponent<KnightFollow>();
         followBehind.SetSpeed(speed);
         stay = this.gameObject.AddComponent<Stay>();
+    }
+
+    void OnDestroy() {
+        StopAllCoroutines();
+        freeRoam.enabled = false;
+        followBehind.enabled = false;
+        stay.enabled = false;
+        this.enabled = false;
     }
 
     void FixedUpdate() {
         if (DetectPlayer(attackRadius)) {
             freeRoam.enabled = false;
             followBehind.enabled = false;
-            WaitAttack();
+            StartCoroutine(WaitAttack());
         }
         else if (DetectPlayer(detectionRadius)) {
             freeRoam.enabled = false;
@@ -60,7 +69,7 @@ public class Knight : MonoBehaviour
     }
 
     void Attack() {
-        Debug.Log("I steb u!");
+        //Debug.Log("I steb u!");
         return;
     }
 }

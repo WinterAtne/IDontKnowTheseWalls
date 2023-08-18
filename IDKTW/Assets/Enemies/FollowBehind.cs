@@ -18,5 +18,7 @@ public class FollowBehind : Approach
 
     void Update() {
         target = transformP.position;
+
+        ApproachTarget();
     }
 }
