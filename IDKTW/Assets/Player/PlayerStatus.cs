@@ -6,11 +6,13 @@ public class PlayerStatus : MonoBehaviour
 {
 
     private int maxHealth = 3;
-    private int currentHealth;
+    private float invunlnerableTime = 0.5f;
 
     private bool isDamageable = true;
+    private int currentHealth;
 
-    private float invunlnerableTime = 0.5f;
+
+
 
     public void Start() {
         currentHealth = maxHealth;
