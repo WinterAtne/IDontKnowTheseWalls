@@ -5,13 +5,15 @@ using UnityEngine;
 public class SwordScript : MonoBehaviour
 {
     static SwordScript instance;
-    float rotation;
+    
 
     int damage = 1;
     float deployTime = 0.2f;
 
     private Camera cameraP;
-    void Start() {
+    float rotation;
+
+    private void Start() {
         if (instance == null) {
             instance = this;
         }
@@ -20,11 +22,12 @@ public class SwordScript : MonoBehaviour
         }
 
         cameraP = GameObject.Find("Camera").GetComponent<Camera>();
+        
         UpdateRotation(); //Avoids a glitch where for one frame it appears that the sword sticks straight out;
         Invoke("SheathSword", deployTime);
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.GetComponent<Damageable>() != null) {
             other.gameObject.GetComponent<Damageable>().Damage(damage);
         }
@@ -32,7 +35,7 @@ public class SwordScript : MonoBehaviour
         SheathSword();
     }
 
-    public void UpdateRotation() {
+    private void UpdateRotation() {
         this.transform.Rotate(0f, 0f, -rotation);
         
 
@@ -46,7 +49,7 @@ public class SwordScript : MonoBehaviour
         this.transform.Rotate(0f, 0f, rotation);
     }
 
-    public void SheathSword() {
+    private void SheathSword() {
         Destroy(this.gameObject);
     }
 }

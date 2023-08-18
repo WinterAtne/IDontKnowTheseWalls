@@ -20,6 +20,7 @@ public class SwordAttack : MonoBehaviour
 
         StabAttack();
     }
+    
     void StabAttack() {
         GameObject swordInstance = Instantiate(sword, transform);
     }

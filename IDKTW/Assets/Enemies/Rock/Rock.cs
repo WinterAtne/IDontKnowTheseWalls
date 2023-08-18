@@ -19,12 +19,12 @@ public class Rock : MonoBehaviour
         freeRoam = this.gameObject.AddComponent<FreeRoam>();
         freeRoam.SetTargets(targetLeft, targetRight);
         freeRoam.SetSpeed(speed);
+
         followBehind = this.gameObject.AddComponent<FollowBehind>();
         followBehind.SetSpeed(speed);
     }
 
     void OnDestroy() {
-        StopAllCoroutines();
         freeRoam.enabled = false;
         followBehind.enabled = false;
     }
