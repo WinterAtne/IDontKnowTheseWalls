@@ -7,13 +7,13 @@ public class MakeAppear : MonoBehaviour
     [SerializeField] float decayReduction = 1f;
 
     void OnCollisionStay2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Appearer")) {
+        if (collision.gameObject.GetComponent<AppearingWalls>()) {
             collision.gameObject.GetComponent<AppearingWalls>().Lighten(decayReduction);
         }
     }
 
     void OnTriggerStay2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Appearer")) {
+        if (collision.gameObject.GetComponent<AppearingWalls>()) {
             collision.gameObject.GetComponent<AppearingWalls>().Lighten(decayReduction);
         }
     }
