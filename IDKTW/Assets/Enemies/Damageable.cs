@@ -40,17 +40,11 @@ public class Damageable : MonoBehaviour
     }
 
     void Die() {
-        if (!GetComponent<AppearingWalls>()) {
-            AppearingWalls aw = this.gameObject.AddComponent<AppearingWalls>();
-            aw.Lighten(timeToFadeOnDeath);
-            Destroy(this.gameObject, timeToFadeOnDeath);
-        }
-
-        Destroy(this.gameObject.GetComponent<BoxCollider2D>());
-
         if (!continueMoving) {
             Destroy(movementScript);
         }
+        Destroy(this.gameObject.GetComponent<BoxCollider2D>());
+        Destroy(this.gameObject, timeToFadeOnDeath);
 
     }
 }

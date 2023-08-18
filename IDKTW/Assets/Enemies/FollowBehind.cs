@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowBehind : MonoBehaviour
+public class FollowBehind : Approach
 {
-    Transform target;
 
-    [SerializeField] float lerpSpeed = 0.125f;
-    [SerializeField] Vector3 offset;
+    private Transform transformP;
 
-    void Awake() {
-        target = GameObject.Find("Player").GetComponent<Transform>();
+    void OnEnable() {
+        try {
+            transformP = GameObject.Find("Player").GetComponent<Transform>();
+        }
+        catch {
+            this.enabled = false;
+        }
     }
 
-    void LateUpdate() {
-        Vector3 desiredPosition = target.position + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, lerpSpeed * Time.deltaTime);
-
-        transform.position = smoothedPosition;
+    void Update() {
+        target = transformP.position;
     }
 }
