@@ -10,7 +10,6 @@ public class SceneManagement : MonoBehaviour
     void Awake() {
         if (Instance == null) {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else {
             Destroy(this.gameObject);
@@ -22,7 +21,7 @@ public class SceneManagement : MonoBehaviour
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             CloseGame();
-            Debug.Log("Must be in Build to Close Game");
+            Debug.LogWarning("Must be in Build to Close Game");
         }
     }
 
