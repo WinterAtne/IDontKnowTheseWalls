@@ -7,6 +7,7 @@ public class VoidLoad : MonoBehaviour
     SceneManagement sm;
 
     [SerializeField] string nameOfNextScene = "MainMenu";
+    [SerializeField] float timeToLoad = 2f;
 
     void Awake() {
         sm = GameObject.Find("EventSystem").GetComponent<SceneManagement>();
@@ -17,7 +18,7 @@ public class VoidLoad : MonoBehaviour
     }
 
     IEnumerator LoadInAMoment() {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(timeToLoad);
         sm.LoadScene(nameOfNextScene);
     }
 }
